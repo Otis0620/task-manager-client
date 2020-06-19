@@ -1,0 +1,20 @@
+@import './Task.scss';
+
+.create-task-icon {
+  font-size: 20px;
+  color: green;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.expand {
+  height: 80px;
+  transition: height .25s linear;
+}
+
+.collapse {
+  height: 35px;
+  transition: .25s linear;
+}
