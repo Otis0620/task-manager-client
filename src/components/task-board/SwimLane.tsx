@@ -2,10 +2,10 @@ import './SwimLane.css';
 import React, { FC } from 'react';
 import { SwimLanePropsI } from './interfaces';
 
-export const SwimLane: FC<SwimLanePropsI> = ({ backgroundColor, title, children }) => (
+export const SwimLane: FC<SwimLanePropsI> = ({ backgroundColor, swimLaneTitle, children }) => (
   <div className="swimLane">
     <div className="swimLane-title" style={{ backgroundColor: backgroundColor }}>
-      <p>{title}</p>
+      <p>{swimLaneTitle}</p>
     </div>
 
     {children}

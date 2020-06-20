@@ -9,12 +9,23 @@
   cursor: pointer;
 }
 
-.expand {
-  height: 80px;
-  transition: height .25s linear;
+.show {
+  display: flex;
 }
 
-.collapse {
-  height: 35px;
-  transition: .25s linear;
+.hide {
+  display: none;
+}
+
+.create-task {
+  padding: 5px;
+}
+
+.create-task-input {
+  width: 100%;
+  border: none;
+}
+
+.create-task-input:focus {
+  outline: none;
 }
