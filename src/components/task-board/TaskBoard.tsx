@@ -16,7 +16,7 @@ export class TaskBoard extends Component<{}, TasksBoardStateI> {
       swimLanes: [],
       tasks: [],
     };
-    this.filterTasksBySwimLane = this.filterTasksBySwimLane.bind(this);
+    this.filterNumberOfTasksBySwimLane = this.filterNumberOfTasksBySwimLane.bind(this);
     this.isFullWidth = this.isFullWidth.bind(this);
   }
 
@@ -31,29 +31,37 @@ export class TaskBoard extends Component<{}, TasksBoardStateI> {
     });
   }
 
-  filterTasksBySwimLane(swimlane: string) {
-    return this.state.tasks.filter((task) => {
-      return task.swimlane === swimlane;
-    });
+  filterNumberOfTasksBySwimLane() {
+    const taskLengths = [];
+
+    for (let swimlane of this.state.swimLanes) {
+      taskLengths.push(
+        this.state.tasks.filter((task) => {
+          return task.swimlane === swimlane.title;
+        }).length,
+      );
+    }
+
+    return taskLengths;
   }
 
-  isFullWidth(swimlane: string) {
+  isFullWidth() {
     const defaultTaskLength = 3;
 
-    return this.filterTasksBySwimLane(swimlane).length < defaultTaskLength;
+    return Math.max(...this.filterNumberOfTasksBySwimLane()) <= defaultTaskLength;
   }
 
   render() {
     return this.state.isLoaded ? (
       <div className="task-board">
-        {this.state.swimLanes.map(({ title, backgroundColor }, index) => (
+        {this.state.swimLanes.map(({ backgroundColor, title }, index) => (
           <SwimLane
             key={index}
             backgroundColor={backgroundColor}
             swimLaneTitle={title}
-            isFullWidth={this.isFullWidth(title)}
+            isFullWidth={this.isFullWidth()}
           >
-            {this.state.tasks.map(({ swimlane, description, id, title: taskTitle }, index) => {
+            {this.state.tasks.map(({ description, id, swimlane, title: taskTitle }, index) => {
               if (title === swimlane) {
                 return (
                   <Task
@@ -66,6 +74,7 @@ export class TaskBoard extends Component<{}, TasksBoardStateI> {
                 );
               }
             })}
+
             <CreateTask backgroundColor={backgroundColor} swimLane={title} />
           </SwimLane>
         ))}
