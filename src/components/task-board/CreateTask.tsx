@@ -20,12 +20,6 @@ export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
   addTask() {
     this.resetTaskTitle();
     this.setIsExpanded(false);
-
-    this.props.addTask({
-      taskNumber: '10',
-      taskTitle: this.state.taskTitle,
-      swimLane: this.props.swimLane,
-    });
   }
   cancelTask() {
     this.setIsExpanded(false);

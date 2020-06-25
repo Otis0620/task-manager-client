@@ -1,5 +1,4 @@
 export interface CreateTaskPropsI {
-  addTask: Function;
   backgroundColor: string;
   swimLane: string;
 }
@@ -11,15 +10,26 @@ export interface CreateTaskStateI {
 
 export interface SwimLanePropsI {
   backgroundColor: string;
+  isFullWidth: boolean;
   swimLaneTitle: string;
 }
 
 export interface TaskPropsI {
   backgroundColor: string;
-  taskNumber: string;
+  description: string;
+  taskNumber: number;
   taskTitle: string;
 }
 
 export interface TasksBoardStateI {
-  tasks: { taskNumber: string; taskTitle: string; swimLane: string }[];
+  isLoaded: boolean;
+  swimLanes: { title: string; backgroundColor: string }[];
+  tasks: {
+    id: number;
+    title: string;
+    swimlane: string;
+    description: string;
+    created_at: string;
+    udpated_at: string;
+  }[];
 }
