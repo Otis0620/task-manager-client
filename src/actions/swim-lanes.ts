@@ -17,7 +17,7 @@ export const getSwimLanesData = (url: string): Function => {
 
       dispatch({
         type: GET_SWIMLANES_DATA_SUCCESS,
-        swimLanes: data,
+        payload: data,
       });
     } catch {
       dispatch(hasErrored(true));

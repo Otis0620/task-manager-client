@@ -1,7 +1,7 @@
 import './TaskBoard.css';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { CreateTask } from '../CreateTask';
+import CreateTask from '../CreateTask';
 import { DispatchI, GlobalStateI, TasksBoardPropsI } from '../interfaces';
 import { getSwimLanesData } from '../../../actions/swim-lanes';
 import { getTaskData } from '../../../actions/tasks';
@@ -9,7 +9,7 @@ import { SwimLane } from '../SwimLane';
 import { Task } from '../Task';
 
 class TaskBoard extends Component<TasksBoardPropsI, {}> {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.getSwimLanesData(`http://task-manager-web.test/api/swimlanes`);
     this.props.getTaskData(`http://task-manager-web.test/api/tasks`);
   }

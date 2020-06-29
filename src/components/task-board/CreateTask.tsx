@@ -1,9 +1,10 @@
 import './CreateTask.scss';
-// import axios from 'axios';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { CreateTaskPropsI, CreateTaskStateI } from './interfaces';
-
-export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
+import { addTaskData } from '../../actions/tasks';
+import { SharedNewTaskT } from '../../shared/types';
+class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
   constructor(props: CreateTaskPropsI) {
     super(props);
 
@@ -12,25 +13,24 @@ export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
       taskTitle: '',
     };
 
-    // this.addTask = this.addTask.bind(this);
+    this.addTask = this.addTask.bind(this);
     this.cancelTask = this.cancelTask.bind(this);
     this.setIsExpanded = this.setIsExpanded.bind(this);
     this.setTaskTitle = this.setTaskTitle.bind(this);
   }
 
-  // addTask() {
-  //   this.resetTaskTitle();
-  //   this.setIsExpanded(false);
-  //   const newTask = {
-  //     title: this.state.taskTitle,
-  //     description: 'sdf',
-  //     swimlane: this.props.swimLane,
-  //   };
+  addTask() {
+    this.resetTaskTitle();
+    this.setIsExpanded(false);
 
-  //   this.props.addTask(newTask);
+    const newTask = {
+      title: this.state.taskTitle,
+      description: '',
+      swimlane: this.props.swimLane,
+    };
 
-  //   axios.post(`http://task-manager-web.test/api/tasks`, newTask);
-  // }
+    this.props.addTaskData('http://task-manager-web.test/api/tasks', newTask);
+  }
 
   cancelTask() {
     this.setIsExpanded(false);
@@ -72,7 +72,7 @@ export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
               value={this.state.taskTitle}
             />
 
-            <i className="create-task-icon fa fa-check"></i>
+            <i className="create-task-icon fa fa-check" onClick={this.addTask}></i>
 
             <i
               className="create-task-icon fa fa-times"
@@ -85,3 +85,9 @@ export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch: Function) => ({
+  addTaskData: (url: string, newTask: SharedNewTaskT) => dispatch(addTaskData(url, newTask)),
+});
+
+export default connect(null, mapDispatchToProps)(CreateTask);

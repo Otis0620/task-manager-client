@@ -2,20 +2,20 @@ import { SharedSwimLanesT, SharedTasksT } from '../shared/types';
 
 export type hasErroredT = {
   type: string;
-  hasErrored: boolean;
+  payload: boolean;
 };
 
 export type isLoadingT = {
   type: string;
-  isLoading: boolean;
+  payload: boolean;
 };
 
 export type SwimLanesT = {
   type: string;
-  swimLanes: SharedSwimLanesT;
+  payload: SharedSwimLanesT;
 };
 
 export type TasksT = {
   type: string;
-  tasks: SharedTasksT;
+  payload: SharedTasksT;
 };

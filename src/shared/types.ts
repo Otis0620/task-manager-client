@@ -1,3 +1,9 @@
+export type SharedNewTaskT = {
+  title: string;
+  description: string;
+  swimlane: any;
+};
+
 export type SharedSwimLanesT = { title: string; backgroundColor: string }[];
 
 export type SharedTasksT = {
