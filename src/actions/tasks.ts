@@ -6,11 +6,18 @@ import { SharedNewTaskT } from '../shared/types';
 export const addTaskData = (url: string, newTask: SharedNewTaskT) => {
   return async (dispatch: Function) => {
     try {
-      await axios.post(url, newTask);
+      const {
+        data: { id },
+      } = await axios.post(url, newTask);
+
+      const newTaskWithID = {
+        ...newTask,
+        id,
+      };
 
       dispatch({
         type: POST_TASK_DATA_SUCCESS,
-        payload: newTask,
+        payload: newTaskWithID,
       });
     } catch {
       dispatch(hasErrored(true));
