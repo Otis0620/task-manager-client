@@ -1,4 +1,5 @@
 import './CreateTask.scss';
+// import axios from 'axios';
 import React, { Component } from 'react';
 import { CreateTaskPropsI, CreateTaskStateI } from './interfaces';
 
@@ -11,16 +12,26 @@ export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
       taskTitle: '',
     };
 
-    this.addTask = this.addTask.bind(this);
+    // this.addTask = this.addTask.bind(this);
     this.cancelTask = this.cancelTask.bind(this);
     this.setIsExpanded = this.setIsExpanded.bind(this);
     this.setTaskTitle = this.setTaskTitle.bind(this);
   }
 
-  addTask() {
-    this.resetTaskTitle();
-    this.setIsExpanded(false);
-  }
+  // addTask() {
+  //   this.resetTaskTitle();
+  //   this.setIsExpanded(false);
+  //   const newTask = {
+  //     title: this.state.taskTitle,
+  //     description: 'sdf',
+  //     swimlane: this.props.swimLane,
+  //   };
+
+  //   this.props.addTask(newTask);
+
+  //   axios.post(`http://task-manager-web.test/api/tasks`, newTask);
+  // }
+
   cancelTask() {
     this.setIsExpanded(false);
     this.resetTaskTitle();
@@ -61,7 +72,7 @@ export class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
               value={this.state.taskTitle}
             />
 
-            <i className="create-task-icon fa fa-check" onClick={this.addTask}></i>
+            <i className="create-task-icon fa fa-check"></i>
 
             <i
               className="create-task-icon fa fa-times"

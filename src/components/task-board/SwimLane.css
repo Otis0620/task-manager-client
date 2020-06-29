@@ -1,8 +1,6 @@
-.full-width {
-  height: 100vh;
-}
 .swimLane {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   width: 25%;
   padding: 20px;

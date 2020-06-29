@@ -1,7 +1,7 @@
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import React from 'react';
-import { TaskBoard } from './components/task-board/TaskBoard';
+import TaskBoard from './components/task-board/containers/TaskBoard';
 
 function App() {
   return (
