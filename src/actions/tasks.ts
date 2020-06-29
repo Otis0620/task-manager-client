@@ -4,21 +4,18 @@ import { hasErrored } from './shared';
 import { SharedNewTaskT } from '../shared/types';
 
 export const addTaskData = (url: string, newTask: SharedNewTaskT) => {
-  return {
-    type: POST_TASK_DATA_SUCCESS,
-    payload: newTask,
-  };
-  // return (dispatch: Function) => {
-  //   axios
-  //     .post(url, newTask)
-  //     .then(() => {
+  return async (dispatch: Function) => {
+    try {
+      await axios.post(url, newTask);
 
-  //     })
-  //     .catch((err) => {
-  //       console.log('error ', err);
-  //       dispatch(hasErrored(true));
-  //     });
-  // };
+      dispatch({
+        type: POST_TASK_DATA_SUCCESS,
+        payload: newTask,
+      });
+    } catch {
+      dispatch(hasErrored(true));
+    }
+  };
 };
 
 export const getTaskData = (url: string): Function => {

@@ -26,7 +26,7 @@ class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
 
     const newTask = {
       title: this.state.taskTitle,
-      description: '',
+      description: 'new task...',
       swimlane: this.props.swimLane,
     };
 
@@ -52,7 +52,7 @@ class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
 
   render() {
     return (
-      <div className="task" style={{}}>
+      <div className="task">
         <div
           className="task-header"
           style={{
