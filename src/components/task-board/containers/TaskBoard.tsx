@@ -1,7 +1,7 @@
-import './TaskBoard.css';
+import './TaskBoard.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import CreateTask from '../CreateTask';
+import CreateTask from './CreateTask';
 import { DispatchI, GlobalStateI, TasksBoardPropsI } from '../interfaces';
 import { getSwimLanesData } from '../../../actions/swim-lanes';
 import { getTaskData } from '../../../actions/tasks';

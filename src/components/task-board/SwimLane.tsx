@@ -1,4 +1,4 @@
-import './SwimLane.css';
+import './SwimLane.scss';
 import React, { FC } from 'react';
 import { SwimLanePropsI } from './interfaces';
 

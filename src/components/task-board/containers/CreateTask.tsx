@@ -1,9 +1,10 @@
 import './CreateTask.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { CreateTaskPropsI, CreateTaskStateI } from './interfaces';
-import { addTaskData } from '../../actions/tasks';
-import { SharedNewTaskT } from '../../shared/types';
+import { CreateTaskPropsI, CreateTaskStateI } from '../interfaces';
+import { addTaskData } from '../../../actions/tasks';
+import { SharedNewTaskT } from '../../../shared/types';
+
 class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
   constructor(props: CreateTaskPropsI) {
     super(props);
