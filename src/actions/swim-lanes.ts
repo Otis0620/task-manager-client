@@ -1,23 +1,19 @@
-import axios from 'axios';
+import { requestService } from '../services';
 import { hasErrored, isLoading } from './shared';
 import { GET_SWIMLANES_DATA_SUCCESS } from '../action-types';
 
-export const getSwimLanesData = (url: string): Function => {
+export const getSwimLanesData = (): Function => {
   return async (dispatch: Function) => {
     dispatch(isLoading(true));
 
     try {
-      const { data, status, statusText } = await axios.get(url);
-
-      if (!(status === 200)) {
-        throw Error(statusText);
-      }
+      const swimLanes = await requestService.get(`/swimlanes`);
 
       dispatch(isLoading(false));
 
       dispatch({
         type: GET_SWIMLANES_DATA_SUCCESS,
-        payload: data,
+        payload: swimLanes,
       });
     } catch {
       dispatch(hasErrored(true));

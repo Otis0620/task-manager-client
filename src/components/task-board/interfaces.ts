@@ -1,7 +1,7 @@
 import { SharedSwimLanesT, SharedTasksT } from '../../shared/types';
 
 export interface CreateTaskPropsI {
-  addTaskData: Function;
+  postTaskData: Function;
   backgroundColor: string;
   swimLane: string;
 }

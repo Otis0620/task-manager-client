@@ -2,7 +2,7 @@ import './CreateTask.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { CreateTaskPropsI, CreateTaskStateI } from '../interfaces';
-import { addTaskData } from '../../../actions/tasks';
+import { postTaskData } from '../../../actions/tasks';
 import { SharedNewTaskT } from '../../../shared/types';
 
 class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
@@ -30,7 +30,7 @@ class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
       swimlane: this.props.swimLane,
     };
 
-    this.props.addTaskData('http://task-manager-web.test/api/tasks', newTask);
+    this.props.postTaskData(newTask);
   }
 
   cancelTask() {
@@ -88,7 +88,7 @@ class CreateTask extends Component<CreateTaskPropsI, CreateTaskStateI> {
 }
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  addTaskData: (url: string, newTask: SharedNewTaskT) => dispatch(addTaskData(url, newTask)),
+  postTaskData: (newTask: SharedNewTaskT) => dispatch(postTaskData(newTask)),
 });
 
 export default connect(null, mapDispatchToProps)(CreateTask);

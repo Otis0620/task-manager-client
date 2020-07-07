@@ -1,23 +1,16 @@
-import axios from 'axios';
 import { GET_TASKS_DATA_SUCCESS, POST_TASK_DATA_SUCCESS } from '../action-types';
 import { hasErrored } from './shared';
+import { requestService } from '../services';
 import { SharedNewTaskT } from '../shared/types';
 
-export const addTaskData = (url: string, newTask: SharedNewTaskT) => {
+export const postTaskData = (newTask: SharedNewTaskT) => {
   return async (dispatch: Function) => {
     try {
-      const {
-        data: { id },
-      } = await axios.post(url, newTask);
-
-      const newTaskWithID = {
-        ...newTask,
-        id,
-      };
+      const payload = await requestService.post('/tasks', newTask);
 
       dispatch({
         type: POST_TASK_DATA_SUCCESS,
-        payload: newTaskWithID,
+        payload,
       });
     } catch {
       dispatch(hasErrored(true));
@@ -25,18 +18,14 @@ export const addTaskData = (url: string, newTask: SharedNewTaskT) => {
   };
 };
 
-export const getTaskData = (url: string): Function => {
+export const getTaskData = (): Function => {
   return async (dispatch: Function) => {
     try {
-      const { data, status, statusText } = await axios.get(url);
-
-      if (!(status === 200)) {
-        throw Error(statusText);
-      }
+      const tasks = await requestService.get(`/tasks`);
 
       dispatch({
         type: GET_TASKS_DATA_SUCCESS,
-        payload: data,
+        payload: tasks,
       });
     } catch {
       dispatch(hasErrored(true));

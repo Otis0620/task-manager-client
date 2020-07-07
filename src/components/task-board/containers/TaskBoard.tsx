@@ -10,12 +10,12 @@ import { Task } from '../Task';
 
 class TaskBoard extends Component<TasksBoardPropsI, {}> {
   componentDidMount() {
-    this.props.getSwimLanesData(`http://task-manager-web.test/api/swimlanes`);
-    this.props.getTaskData(`http://task-manager-web.test/api/tasks`);
+    this.props.getSwimLanesData();
+    this.props.getTaskData();
   }
 
   render() {
-    return !this.props.isLoading ? (
+    return !this.props.isLoading || !this.props.hasErrored ? (
       <div className="task-board">
         {this.props.swimLanes.map(({ backgroundColor, title }, index) => (
           <SwimLane key={index} backgroundColor={backgroundColor} swimLaneTitle={title}>
@@ -38,7 +38,9 @@ class TaskBoard extends Component<TasksBoardPropsI, {}> {
         ))}
       </div>
     ) : (
-      <span>Loading...</span>
+      <div>
+        <span>Loading...</span>
+      </div>
     );
   }
 }
@@ -53,8 +55,8 @@ const mapStateToProps = ({ swimLanes, hasErrored, isLoading, tasks }: GlobalStat
 };
 
 const mapDispatchToProps = (dispatch: Function): DispatchI => ({
-  getSwimLanesData: (url: string) => dispatch(getSwimLanesData(url)),
-  getTaskData: (url: string) => dispatch(getTaskData(url)),
+  getSwimLanesData: () => dispatch(getSwimLanesData()),
+  getTaskData: () => dispatch(getTaskData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskBoard);
