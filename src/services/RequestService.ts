@@ -13,14 +13,18 @@ class RequestService extends AuthService {
   }
 
   async post(path: string, payload) {
-    const {
-      data: { id },
-    } = await axios.post(`${this.url}${path}`, payload, this.headersWithAuth());
+    try {
+      const {
+        data: { id },
+      } = await axios.post(`${this.url}${path}`, payload, this.headersWithAuth());
 
-    return {
-      ...payload,
-      id,
-    };
+      return {
+        ...payload,
+        id,
+      };
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 

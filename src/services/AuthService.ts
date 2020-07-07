@@ -62,8 +62,6 @@ class AuthService extends CookieService {
     let isAuthenticated = false;
 
     token ? (isAuthenticated = true) : (isAuthenticated = false);
-    console.log('token ', token);
-    console.log('isAuthenticated ', isAuthenticated);
 
     return isAuthenticated;
   }
