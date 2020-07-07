@@ -1,9 +1,9 @@
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import React from 'react';
-import Login from './components/Auth/Login';
+import Login from './components/auth/Login';
 import PrivateRoute from './routes/PrivateRoute';
-import Register from './components/Auth/Register';
+import Register from './components/auth/Register';
 import TaskBoard from './components/task-board/containers/TaskBoard';
 import { Router, Route, Switch } from 'react-router-dom';
 import { history } from './routes/history';
