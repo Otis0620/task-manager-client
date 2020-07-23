@@ -26,9 +26,7 @@ describe('swimlanes', () => {
 
       expect(store.getActions()).toEqual(expectedActions);
     });
-  });
 
-  describe('getSwimLanesData', () => {
     it('should dispatch IS_LOADING and HAS_ERRORED if api request fails', async () => {
       const store = mockStore({});
       const expectedActions = [
