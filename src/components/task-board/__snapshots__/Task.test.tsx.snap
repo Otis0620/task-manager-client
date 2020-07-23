@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task 1`] = `
+<div
+  className="task"
+>
+  <div
+    className="task-header"
+    style={
+      Object {
+        "backgroundColor": "red",
+      }
+    }
+  >
+    <p>
+      1
+    </p>
+    <p>
+      Fake Title
+    </p>
+  </div>
+  <div>
+    <p>
+      ...
+    </p>
+  </div>
+</div>
+`;
