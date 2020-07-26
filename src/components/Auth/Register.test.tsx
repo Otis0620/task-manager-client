@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Register from './Register';
 
 test('Register', () => {
-  const component = shallow(<Register />);
+  const wrapper = shallow(<Register />);
 
-  expect(component).toMatchSnapshot();
+  expect(wrapper).toMatchSnapshot();
 });
