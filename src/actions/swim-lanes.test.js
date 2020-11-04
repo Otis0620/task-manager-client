@@ -1,8 +1,8 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { getSwimLanesData } from './swim-lanes';
-import { GET_SWIMLANES_DATA_SUCCESS, HAS_ERRORED, IS_LOADING } from '../action-types';
-import { requestService } from '../services';
+import { getSwimLanesData } from './swim-lanes.ts';
+import { GET_SWIMLANES_DATA_SUCCESS, HAS_ERRORED, IS_LOADING } from '../action-types/index.ts';
+import { requestService } from '../services/index.ts';
 
 jest.mock('../services');
 

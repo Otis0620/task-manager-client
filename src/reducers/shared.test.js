@@ -1,5 +1,5 @@
-import { hasErrored, isLoading } from './shared';
-import { HAS_ERRORED, IS_LOADING } from '../action-types';
+import { hasErrored, isLoading } from './shared.ts';
+import { HAS_ERRORED, IS_LOADING } from '../action-types/index.ts';
 
 describe('shared', () => {
   describe('hasErrored', () => {

@@ -1,5 +1,5 @@
-import { swimLanes } from './swim-lanes';
-import { GET_SWIMLANES_DATA_SUCCESS } from '../action-types';
+import { swimLanes } from './swim-lanes.ts';
+import { GET_SWIMLANES_DATA_SUCCESS } from '../action-types/index.ts';
 
 describe('swim-lanes', () => {
   describe('swimLanes', () => {
