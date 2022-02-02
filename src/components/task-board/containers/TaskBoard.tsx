@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable multiline-ternary */
 import './TaskBoard.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';

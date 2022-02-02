@@ -3,7 +3,8 @@ import thunk from 'redux-thunk';
 import { getTaskData, postTaskData } from './tasks.ts';
 import {
   GET_TASKS_DATA_SUCCESS,
-  HAS_ERRORED, POST_TASK_DATA_SUCCESS,
+  HAS_ERRORED,
+  POST_TASK_DATA_SUCCESS,
 } from '../action-types/index.ts';
 import { requestService } from '../services/index.ts';
 

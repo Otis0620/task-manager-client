@@ -7,7 +7,7 @@ export const getSwimLanesData = (): Function => {
     dispatch(isLoading(true));
 
     try {
-      const swimLanes = await requestService.get(`/swimlanes`);
+      const swimLanes = await requestService.get('/swimlanes');
 
       dispatch(isLoading(false));
 

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable multiline-ternary */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { authService } from '../services';
@@ -6,8 +8,8 @@ function PrivateRoute({ children, ...rest }) {
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        authService.getIsAuthenticated() ? (
+      render={({ location }) => {
+        return authService.getIsAuthenticated() ? (
           children
         ) : (
           <Redirect
@@ -16,8 +18,8 @@ function PrivateRoute({ children, ...rest }) {
               state: { from: location },
             }}
           />
-        )
-      }
+        );
+      }}
     />
   );
 }

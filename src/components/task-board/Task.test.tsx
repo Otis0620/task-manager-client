@@ -4,7 +4,7 @@ import { Task } from './Task';
 
 test('Task', () => {
   const wrapper = shallow(
-    <Task backgroundColor="red" taskNumber={1} description="..." taskTitle="Fake Title" />,
+    <Task backgroundColor="red" taskNumber={1} description="..." taskTitle="Fake Title" />
   );
 
   expect(wrapper).toMatchSnapshot();

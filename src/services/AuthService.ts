@@ -27,10 +27,10 @@ class AuthService extends CookieService {
     try {
       const path = 'register';
       const {
-        data: { access_token },
+        data: { accessToken },
       } = await axios.post(`${this.url}/${path}`, payload);
 
-      this.cookieService.set('access_token', access_token);
+      this.cookieService.set('access_token', accessToken);
 
       return true;
     } catch (error) {

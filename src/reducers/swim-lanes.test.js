@@ -10,7 +10,7 @@ describe('swim-lanes', () => {
         swimLanes([], {
           type: GET_SWIMLANES_DATA_SUCCESS,
           payload,
-        }),
+        })
       ).toEqual(payload);
     });
 
@@ -21,7 +21,7 @@ describe('swim-lanes', () => {
         swimLanes([], {
           type: 'INVALID_TYPE',
           payload,
-        }),
+        })
       ).toEqual(payload);
     });
   });

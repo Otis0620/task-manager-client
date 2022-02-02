@@ -21,7 +21,7 @@ export const postTaskData = (newTask: SharedNewTaskT) => {
 export const getTaskData = (): Function => {
   return async (dispatch: Function) => {
     try {
-      const tasks = await requestService.get(`/tasks`);
+      const tasks = await requestService.get('/tasks');
 
       dispatch({
         type: GET_TASKS_DATA_SUCCESS,
