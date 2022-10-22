@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import Login from './Login';
 
-test('App', () => {
-  const wrapper = shallow(<App />);
+test('Login', () => {
+  const wrapper = shallow(<Login />);
 
   expect(wrapper).toMatchSnapshot();
 });

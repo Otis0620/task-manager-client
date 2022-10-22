@@ -1,0 +1,31 @@
+@import '../Task.scss';
+
+.create-task-icon {
+  font-size: 20px;
+  color: green;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+.create-task {
+  padding: 5px;
+}
+
+.create-task-input {
+  width: 100%;
+  border: none;
+}
+
+.create-task-input:focus {
+  outline: none;
+}

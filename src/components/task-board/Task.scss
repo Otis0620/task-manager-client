@@ -1,0 +1,17 @@
+.task {
+  margin-top: 15px;
+  box-shadow: gray;
+  background-color: white;
+  box-shadow: 4px 2px 11px 0px rgba(197, 197, 197, 1);
+}
+
+.task-header {
+  display: flex;
+  font-size: .5em;
+  word-wrap: break-word;
+  color: white;
+
+  p {
+    padding-left: 5px
+  }
+}
